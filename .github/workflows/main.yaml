@@ -88,7 +88,7 @@ jobs:
       #   run: |
       #    docker ps -q --filter "name=texts" | grep -q . && docker stop texts && docker rm -fv texts
 
-      # Uncomment above lines whenever do the deployment for the second time
+      # Uncomment above lines whenever you do the deployment for the second time
 
       - name: Run Docker Image to serve users
         run: |
