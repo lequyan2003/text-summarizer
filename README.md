@@ -118,7 +118,9 @@ Email: lequyan2003@gmail.com
 
     setting>actions>runner>new self hosted runner> choose os> then run command one by one
 
-# 7. Setup github secrets: settings>security>secrets and variables>actions>
+# 7. Setup github secrets:
+
+    settings>security>secrets and variables>actions>
 
     (text-summarizer_accessKeys.csv)
     AWS_ACCESS_KEY_ID=
