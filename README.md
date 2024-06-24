@@ -118,14 +118,15 @@ Email: lequyan2003@gmail.com
 
     setting>actions>runner>new self hosted runner> choose os> then run command one by one
 
-# 7. Setup github secrets:
+# 7. Setup github secrets: settings>security>secrets and variables>actions>
 
+    (text-summarizer_accessKeys.csv)
     AWS_ACCESS_KEY_ID=
 
     AWS_SECRET_ACCESS_KEY=
 
-    AWS_REGION = us-east-1
+    AWS_REGION = us-east-1 (Choose your AWS region)
 
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
+    AWS_ECR_LOGIN_URI = demo>>  891377084283.dkr.ecr.us-east-1.amazonaws.com
 
-    ECR_REPOSITORY_NAME = simple-app
+    ECR_REPOSITORY_NAME = text-summarizer
