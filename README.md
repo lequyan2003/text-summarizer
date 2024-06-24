@@ -60,14 +60,14 @@ Email: lequyan2003@gmail.com
 
 ## 2. Create IAM user for deployment
 
-    #with specific access
+    # with specific access
 
     1. EC2 access : It is virtual machine
 
     2. ECR: Elastic Container registry to save your docker image in aws
 
 
-    #Description: About the deployment
+    # Description: About the deployment
 
     1. Build docker image of the source code
 
@@ -79,7 +79,7 @@ Email: lequyan2003@gmail.com
 
     5. Lauch your docker image in EC2
 
-    #Policy:
+    # Policy:
 
     1. AmazonEC2ContainerRegistryFullAccess
 
@@ -92,8 +92,9 @@ Email: lequyan2003@gmail.com
 ## 4. Create EC2 machine (Ubuntu)
 
     - Ubuntu
-    - Create text-summarizer-key key pair
     - t2.xlarge
+    - Create text-summarizer-key key pair
+    - Network settings: 3 ticks
     - 30 GiB
 
 ## 5. Open EC2 and Install docker in EC2 Machine:
@@ -116,19 +117,36 @@ Email: lequyan2003@gmail.com
 
 # 6. Configure EC2 as self-hosted runner:
 
-    setting>actions>runner>new self hosted runner> choose os> then run command one by one
+    Settings>Actions>Runners>New self-hosted runner>Runner image: Linux
+    >Run commands from Download to Configure
 
 # 7. Setup github secrets:
 
-    settings>security>secrets and variables>actions>
+    Settings>Secrets and variables>Actions>
 
     (text-summarizer_accessKeys.csv)
-    AWS_ACCESS_KEY_ID=
+    AWS_ACCESS_KEY_ID=first
 
-    AWS_SECRET_ACCESS_KEY=
+    AWS_SECRET_ACCESS_KEY=second
 
     AWS_REGION = us-east-1 (Choose your AWS region)
 
     AWS_ECR_LOGIN_URI = demo>>  891377084283.dkr.ecr.us-east-1.amazonaws.com
 
     ECR_REPOSITORY_NAME = text-summarizer
+
+# 8. Setup EC2 instance:
+
+    Instances>Instance ID>Security>Security groups>Edit inbound rules
+
+    >Add rule: Custom TCP, TCP, 8080, Anywhere, 0.0.0.0/0>Save rules
+
+    >Copy Public IPv4 adress and add port 8080
+
+# 9. Clear Resources
+
+    EC2: Instances>Terminate instance
+
+    ECR: Repositories>Delete
+
+    IAM: Users>Delete
